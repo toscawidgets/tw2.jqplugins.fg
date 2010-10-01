@@ -1,11 +1,38 @@
 <div xmlns:py="http://genshi.edgewall.org/"
      xmlns:xi="http://www.w3.org/2001/XInclude"
      id="${w.attrs['id']}-wrapper">
-<div py:attrs="w.attrs">
-    <py:for each="header, item in w.items">
-        <h3><a href="#">${header}</a></h3>
-        <div>${item}</div>
+     <style type="text/css">
+    body { font-size:62.5%; }
+    .hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
+    .fg-button { clear:left; margin:0 4px 40px 20px; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+    .fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+    a.fg-button { float:left;  }
+    button.fg-button { width:auto; overflow:visible; } /* removes extra button width in IE */
+    
+    .fg-button-icon-left { padding-left: 2.1em; }
+    .fg-button-icon-right { padding-right: 2.1em; }
+    .fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+    .fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+    .fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }     /* solo icon buttons must have block properties for the text-indent to work */ 
+    
+    .fg-button.ui-state-loading .ui-icon { background: url(spinner_bar.gif) no-repeat 0 0; }
+     </style>
+<a py:attrs="w.attrs" tabindex="0" href="#${w.attrs['id']}-target" class='fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all'>${w.label}</a>
+<div id="${w.attrs['id']}-target" class='hidden'>
+    <ul>
+    <py:for each="entry in w.items">
+        <xi:include href="recursive_menu.html" py:with="item=entry" />
     </py:for>
-<xi:include href="generic_jq_ui_js.html" />
+    </ul>
 </div>
+
+<script xmlns:py="http://genshi.edgewall.org/" type="text/javascript">
+$(function() {
+    $(document).ready( function () {
+        var opts = ${w.options};
+        opts['content'] = $('#${w.attrs["id"]}-target').html();
+        $("#${w.attrs['id']}").${w.jqmethod}(opts);
+    });
+});
+</script>
 </div>

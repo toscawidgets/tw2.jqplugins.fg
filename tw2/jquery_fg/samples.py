@@ -7,58 +7,197 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
 from widgets import MenuWidget
+
 some_items = [
-        ('Section 1',
-         """
-                <p>
-                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                </p>
-         """),
-        ('Section 2',
-         """
-                <p>
-                Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                suscipit faucibus urna.
-                </p>
-        """),
-        ('Section 3',
-         """
-                <p>
-                Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
-         """),
-        ('Section 4',
-         """
-                <p>
-                Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                mauris vel est.
-                </p>
-                <p>
-                Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos.
-                </p>
-         """),
+    {'name' : "Breaking News",
+        'children' : [ 
+            {'name' : "Entertainment",},
+            {'name' : "Politics",},
+            {'name' : "A&amp;E",},
+            {'name' : "Sports", 
+                'children' : [ 
+                    {'name' : "Baseball",},
+                    {'name' : "Basketball",},
+                    {'name' : "A really long label would wrap nicely as you can see",},
+                    {'name' : "Swimming", 
+                        'children' : [ 
+                            {'name' : "High School",},
+                            {'name' : "College",},
+                            {'name' : "Professional", 
+                                'children' : [ 
+                                    {'name' : "Mens Swimming", 
+                                        'children' : [ 
+                                            {'name' : "News",},
+                                            {'name' : "Events",},
+                                            {'name' : "Awards",},
+                                            {'name' : "Schedule",},
+                                            {'name' : "Team Members",},
+                                            {'name' : "Fan Site",},
+                                        ]
+                                    }, 
+                                    {'name' : "Womens Swimming", 
+                                        'children' : [ 
+                                            {'name' : "News",},
+                                            {'name' : "Events",},
+                                            {'name' : "Awards",},
+                                            {'name' : "Schedule",},
+                                            {'name' : "Team Members",},
+                                            {'name' : "Fan Site",},
+                                        ]
+                                    }, 
+                                ]
+                            }, 
+                            {'name' : "Adult Recreational",},
+                            {'name' : "Youth Recreational",},
+                            {'name' : "Senior Recreational",},
+                        ]
+                    }, 
+                    {'name' : "Tennis",},
+                    {'name' : "Ice Skating",},
+                    {'name' : "Javascript Programming",},
+                    {'name' : "Running",},
+                    {'name' : "Walking",},
+                ]
+            }, 
+            {'name' : "Local",},
+            {'name' : "Health",},
+        ],
+    }, 
+    {'name' : "Entertainment", 
+    'children' : [ 
+        {'name' : "Celebrity news",},
+        {'name' : "Gossip",},
+        {'name' : "Movies",},
+        {'name' : "Music", 
+        'children' : [ 
+            {'name' : "Alternative",},
+            {'name' : "Country",},
+            {'name' : "Dance",},
+            {'name' : "Electronica",},
+            {'name' : "Metal",},
+            {'name' : "Pop",},
+            {'name' : "Rock", 
+                'children' : [ 
+                    {'name' : "Bands", 
+                        'children' : [ 
+                            {'name' : "Dokken",},
+                        ],
+                    }, 
+                    {'name' : "Fan Clubs",},
+                    {'name' : "Songs",},
+                ],
+            }, 
+        ],
+        }, 
+        {'name' : "Slide shows",},
+        {'name' : "Red carpet",},
+    ],
+    }, 
+    {'name' : "Finance", 
+    'children' : [ 
+        {'name' : "Personal", 
+        'children' : [ 
+            {'name' : "Loans",},
+            {'name' : "Savings",},
+            {'name' : "Mortgage",},
+            {'name' : "Debt",},
+        ],
+        }, 
+        {'name' : "Business",},
+    ],
+    }, 
+    {'name' : "Food &#38; Cooking", 
+    'children' : [ 
+        {'name' : "Breakfast",},
+        {'name' : "Lunch",},
+        {'name' : "Dinner",},
+        {'name' : "Dessert", 
+            'children' : [ 
+                {'name' : "Dump Cake",},
+                {'name' : "Doritos",},
+                {'name' : "Both please.",},
+            ],
+        }, 
+    ],
+    }, 
+    {'name' : "Lifestyle",},
+    {'name' : "News",},
+    {'name' : "Politics",},
+    {'name' : "Sports", 
+        'children' : [ 
+            {'name' : "Baseball",},
+            {'name' : "Basketball",},
+            {'name' : "Swimming", 
+            'children' : [ 
+                {'name' : "High School",},
+                {'name' : "College",},
+                {'name' : "Professional", 
+                'children' : [ 
+                    {'name' : "Mens Swimming", 
+                    'children' : [ 
+                            {'name' : "News",},
+                            {'name' : "Events",},
+                            {'name' : "Awards",},
+                            {'name' : "Schedule",},
+                            {'name' : "Team Members",},
+                            {'name' : "Fan Site",},
+                    ],
+                    }, 
+                    {'name' : "Womens Swimming", 
+                    'children' : [ 
+                        {'name' : "News",},
+                        {'name' : "Events",},
+                        {'name' : "Awards",},
+                        {'name' : "Schedule",},
+                        {'name' : "Team Members",},
+                        {'name' : "Fan Site",},
+                    ],
+                    },
+                ],
+                }, 
+                {'name' : "Adult Recreational",},
+                {'name' : "Youth Recreational",},
+                {'name' : "Senior Recreational",},
+            ],
+            }, 
+            {'name' : "Tennis",},
+            {'name' : "Ice Skating",},
+            {'name' : "Javascript Programming",},
+            {'name' : "Running",},
+            {'name' : "Walking",},
+        ],
+        }, 
     ]
+some_items = [
+    { 'name' : 'foo1',
+     'children' : [
+         { 'name' : 'foo1',},
+         { 'name' : 'foo2',},
+         { 'name' : 'foo3',},
+     ]},
+    { 'name' : 'foo2',
+     'children' : [
+         { 'name' : 'foo1',},
+         { 'name' : 'foo2',},
+         { 'name' : 'foo3',},
+     ]},
+    { 'name' : 'foo3',
+     'children' : [
+         { 'name' : 'foo1',},
+         { 'name' : 'foo2',},
+         { 'name' : 'foo3',},
+     ]},
+    { 'name' : 'foo4',
+     'children' : [
+         { 'name' : 'foo1',},
+         { 'name' : 'foo2',},
+         { 'name' : 'foo3',},
+     ]},
+]
+
 class DemoMenuWidget(MenuWidget):
     items = some_items
     options = {
-        'fillSpace' : True,
-        'active' : 2
+        'backLink' : False,
     }
 
