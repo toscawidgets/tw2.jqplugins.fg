@@ -1,11 +1,23 @@
 <div xmlns:py="http://genshi.edgewall.org/"
      xmlns:xi="http://www.w3.org/2001/XInclude"
      id="${w.attrs['id']}-wrapper">
-<div py:attrs="w.attrs">
-    <py:for each="header, item in w.items">
-        <h3><a href="#">${header}</a></h3>
-        <div>${item}</div>
+<a py:attrs="w.attrs" href="#${w.attrs['id']}-target" class='fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all'><span class='ui-icon ui-icon-triangle-1-s'>${w.label}</span></a>
+<div id="${w.attrs['id']}-target" class='hidden'>
+    <py:for each="entry in w.items">
+        <xi:include href="recursive_menu.html" py:with="item=entry" />
     </py:for>
-<xi:include href="generic_jq_ui_js.html" />
 </div>
+
+<script xmlns:py="http://genshi.edgewall.org/" type="text/javascript">
+$(function() {
+    $(document).ready( function () {
+        var opts = ${w.options};
+        opts['content'] = $('#${w.attrs["id"]}').next().html();
+        $("#${w.attrs['id']}").${w.jqmethod}(opts);
+        <py:if test="w.click">
+        $("#${w.attrs['id']}").click(${w.click});
+        </py:if>
+    });
+});
+</script>
 </div>

@@ -15,13 +15,13 @@ from tw2.jquery_fg import defaults
 ### Links, etc...
 class jQueryFGMixin(jQueryPluginLinkMixin):
     dirname = defaults._fg_dirname_
-    basename='jquery-fg'
+    basename='fg.menu'
     modname = 'tw2.jquery_fg'
 
-class jQueryFGJSLink(twc.JSLink, jQueryUIMixin):
+class jQueryFGJSLink(twc.JSLink, jQueryFGMixin):
     subdir = 'js'
 
-class jQueryFGCSSLink(jQueryUIMixin, twc.CSSLink):
+class jQueryFGCSSLink(jQueryFGMixin, twc.CSSLink):
     subdir = 'css'
     extension = 'css'
 
