@@ -1,4 +1,4 @@
-tw2.jquery_ui
+tw2.jquery_fg
 =============
 
 :Author: Ralph Bean <ralph.bean@gmail.com>
@@ -8,19 +8,20 @@ tw2.jquery_ui
 .. _toscawidgets2 (tw2): http://toscawidgets.org/documentation/tw2.core/
 .. _jQuery UI: http://jqueryui.com/
 .. _jQuery: http://jquery.com/
+.. _filament group: http://www.filamentgroup.com/
 
-tw2.jquery_ui is a `toscawidgets2 (tw2)`_ wrapper for `jQuery UI`_.
+tw2.jquery_fg is a `toscawidgets2 (tw2)`_ wrapper for a bunch of random widgets and tools from the awesome `filament group`_.
 
 Live Demo
 ---------
-Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jquery_ui>`_.
+Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jquery_fg>`_.
 
 Links
 -----
-Get the `source from github <http://github.com/ralphbean/tw2.jquery_ui>`_.
+Get the `source from github <http://github.com/ralphbean/tw2.jquery_fg>`_.
 
-`PyPI page <http://pypi.python.org/pypi/tw2.jquery_ui>`_
-and `bugs <http://github.com/ralphbean/tw2.jquery_ui/issues/>`_
+`PyPI page <http://pypi.python.org/pypi/tw2.jquery_fg>`_
+and `bugs <http://github.com/ralphbean/tw2.jquery_fg/issues/>`_
 
 Description
 -----------
@@ -31,15 +32,8 @@ and easier. Widgets are re-usable web components that can include a template,
 server-side code and JavaScripts/CSS resources. The library aims to be:
 flexible, reliable, documented, performant, and as simple as possible.
 
-`jQuery`_ is a fast and concise JavaScript Library that simplifies HTML
-document traversing, event handling, animating, and Ajax interactions
-for rapid web development. jQuery is designed to change the way that
-you write JavaScript.
+The `filament group`_ designs engaging user interfaces for web
+applications, mobile devices and touchscreen kiosks that are simple
+and accessible to everyone.
 
-`jQuery UI`_ provides abstractions for low-level interaction and animation,
-advanced effects and high-level, themeable widgets, built on top of the
-jQuery JavaScript Library, that you can use to build highly interactive
-web applications.
-
-This module, tw2.jquery_ui, provides `toscawidgets2 (tw2)`_ access to
-`jQuery UI`_ widgets.
+This module, tw2.jquery_fg, provides `toscawidgets2 (tw2)`_ access to random `filament group`_ widgets.
