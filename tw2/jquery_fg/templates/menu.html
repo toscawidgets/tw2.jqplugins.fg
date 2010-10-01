@@ -2,7 +2,6 @@
      xmlns:xi="http://www.w3.org/2001/XInclude"
      id="${w.attrs['id']}-wrapper">
      <style type="text/css">
-    body { font-size:62.5%; }
     .hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
     .fg-button { clear:left; margin:0 4px 40px 20px; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
     .fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
@@ -32,6 +31,9 @@ $(function() {
         var opts = ${w.options};
         opts['content'] = $('#${w.attrs["id"]}-target').html();
         $("#${w.attrs['id']}").${w.jqmethod}(opts);
+        <py:if test="w.click">
+        $("#${w.attrs['id']}").click(${w.click});
+        </py:if>
     });
 });
 </script>

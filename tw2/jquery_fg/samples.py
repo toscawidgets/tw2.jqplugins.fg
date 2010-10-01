@@ -168,32 +168,6 @@ some_items = [
         ],
         }, 
     ]
-some_items = [
-    { 'name' : 'foo1',
-     'children' : [
-         { 'name' : 'foo1',},
-         { 'name' : 'foo2',},
-         { 'name' : 'foo3',},
-     ]},
-    { 'name' : 'foo2',
-     'children' : [
-         { 'name' : 'foo1',},
-         { 'name' : 'foo2',},
-         { 'name' : 'foo3',},
-     ]},
-    { 'name' : 'foo3',
-     'children' : [
-         { 'name' : 'foo1',},
-         { 'name' : 'foo2',},
-         { 'name' : 'foo3',},
-     ]},
-    { 'name' : 'foo4',
-     'children' : [
-         { 'name' : 'foo1',},
-         { 'name' : 'foo2',},
-         { 'name' : 'foo3',},
-     ]},
-]
 
 class DemoMenuWidget(MenuWidget):
     items = some_items
