@@ -173,5 +173,7 @@ class DemoMenuWidget(MenuWidget):
     items = some_items
     options = {
         'backLink' : False,
+        'maxHeight' : 300,
+        'width' : 250,
     }
 
