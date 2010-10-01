@@ -6,18 +6,7 @@ These samples will appear in the WidgetBrowser
 See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
-from widgets import (
-    AccordionWidget,
-    AutocompleteWidget,
-    CategoryAutocompleteWidget,
-    ButtonWidget,
-    DatePickerWidget,
-    DialogWidget,
-    ProgressBarWidget,
-    SliderWidget,
-    TabsWidget,
-)
-
+from widgets import MenuWidget
 some_items = [
         ('Section 1',
          """
@@ -66,64 +55,10 @@ some_items = [
                 </p>
          """),
     ]
-class DemoAccordionWidget(AccordionWidget):
+class DemoMenuWidget(MenuWidget):
     items = some_items
     options = {
         'fillSpace' : True,
         'active' : 2
     }
 
-class DemoAutocompleteWidget(AutocompleteWidget):
-    options = {
-        'source' : [
-            "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
-            "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy",
-            "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python",
-            "Ruby", "Scala", "Scheme"
-        ],
-    }
-class DemoCategoryAutocompleteWidget(CategoryAutocompleteWidget):
-    value = "Try 'n' or 'a'"
-    options = {
-        'source' : [
-            { 'label': "anders", 'category': "" },
-            { 'label': "andreas", 'category': "" },
-            { 'label': "antal", 'category': "" },
-            { 'label': "annhhx10", 'category': "Products" },
-            { 'label': "annk K12", 'category': "Products" },
-            { 'label': "annttop C13", 'category': "Products" },
-            { 'label': "anders andersson", 'category': "People" },
-            { 'label': "andreas andersson", 'category': "People" },
-            { 'label': "andreas johnson", 'category': "People" }
-        ]
-    }
-    
-class DemoButtonWidget(ButtonWidget):
-    type = 'button'
-    value = "This is a jQuery UI button"
-    click = "function() { alert( 'Hello world!' ) }"
-
-class DemoDatePickerWidget(DatePickerWidget):
-    pass
-
-class DemoDialogWidget(DialogWidget):
-    options = {
-        'title' : 'Basic Dialog',
-    }
-    value = """
-    <p>
-    This is the default dialog which is useful for displaying information.
-    The dialog window can be moved, resized and closed with the 'x' icon.
-    </p>
-
-    <p>It is likely displayed at the top of the page ;p</p>
-    """
-
-class DemoProgressBarWidget(ProgressBarWidget):
-    value = 28
-
-class DemoSliderWidget(SliderWidget):
-    pass
-
-class DemoTabsWidget(TabsWidget):
-    items = some_items
