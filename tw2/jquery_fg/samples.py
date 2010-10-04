@@ -6,6 +6,7 @@ These samples will appear in the WidgetBrowser
 See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
+import tw2.jquery_ui
 from widgets import MenuWidget
 
 some_items = [
@@ -176,4 +177,10 @@ class DemoMenuWidget(MenuWidget):
         'maxHeight' : 300,
         'width' : 250,
     }
+    button = tw2.jquery_ui.ButtonWidget(options={
+        'label' : 'A Menu',
+        'icons' : {
+            'primary' : 'ui-icon-triangle-1-s'
+        }
+    })
 
