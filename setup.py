@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='tw2.jquery_fg',
-    version='2.0a3',
+    version='2.0a4',
     description='toscawidgets2 wrapper for random filament group tools',
     long_description=long_description,
     author='Ralph Bean',
@@ -17,6 +17,7 @@ setup(
     install_requires=[
         "tw2.core>=2.0b2",
         "tw2.jquery_core",
+        "tw2.jquery_ui",
         ## Add other requirements here
         # "Genshi",
         ],
