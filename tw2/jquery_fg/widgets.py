@@ -75,5 +75,5 @@ class MenuWidget(uibase.JQueryUIWidget):
     jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
-    label = twc.Param(
+    button = twc.Param(
         'A label for the menu (an instance of tw2.jquery_ui.ButtonWidget)')

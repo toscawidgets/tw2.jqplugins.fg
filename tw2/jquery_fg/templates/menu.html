@@ -2,7 +2,7 @@
      xmlns:xi="http://www.w3.org/2001/XInclude"
      id="${w.attrs['id']}-wrapper">
 
-<a py:attrs="w.attrs" tabindex="0" href="#${w.attrs['id']}-target" class='fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all'>${w.label.display()}</a>
+${w.button.display()}
 <div id="${w.attrs['id']}-target" class='hidden'>
     <ul>
     <py:for each="entry in w.items">
