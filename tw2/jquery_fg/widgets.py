@@ -72,7 +72,7 @@ class MenuWidget(uibase.JQueryUIWidget):
 
 
     template = "tw2.jquery_fg.templates.menu"
-    jqmethod = 'menu'
+    jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
     label = twc.Param('A label for the menu', default='The Foo Menu')

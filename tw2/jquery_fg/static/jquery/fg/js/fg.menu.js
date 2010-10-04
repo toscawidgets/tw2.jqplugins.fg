@@ -1,10 +1,10 @@
 /*-------------------------------------------------------------------- 
-Scripts for creating and manipulating custom menus based on standard <ul> markup
+Scripts for creating and manipulating custom fgmenus based on standard <ul> markup
 Version: 3.0, 03.31.2009
 
 By: Maggie Costello Wachs (maggie@filamentgroup.com) and Scott Jehl (scott@filamentgroup.com)
 	http://www.filamentgroup.com
-	* reference articles: http://www.filamentgroup.com/lab/jquery_ipod_style_drilldown_menu/
+	* reference articles: http://www.filamentgroup.com/lab/jquery_ipod_style_drilldown_fgmenu/
 		
 Copyright (c) 2009 Filament Group
 Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL (filamentgroup.com/examples/gpl-license.txt) licenses.
@@ -13,7 +13,7 @@ Dual licensed under the MIT (filamentgroup.com/examples/mit-license.txt) and GPL
 
 var allUIMenus = [];
 
-$.fn.menu = function(options){
+$.fn.fgmenu = function(options){
 	var caller = this;
 	var options = options;
 	var m = new Menu(caller, options);	
@@ -21,27 +21,27 @@ $.fn.menu = function(options){
 	
 	$(this)
 	.mousedown(function(){
-		if (!m.menuOpen) { m.showLoading(); };
+		if (!m.fgmenuOpen) { m.showLoading(); };
 	})	
 	.click(function(){
-		if (m.menuOpen == false) { m.showMenu(); }
+		if (m.fgmenuOpen == false) { m.showMenu(); }
 		else { m.kill(); };
 		return false;
 	});	
 };
 
 function Menu(caller, options){
-	var menu = this;
+	var fgmenu = this;
 	var caller = $(caller);
 	var container = $('<div class="fg-menu-container ui-widget ui-widget-content ui-corner-all">'+options.content+'</div>');
 	
-	this.menuOpen = false;
-	this.menuExists = false;
+	this.fgmenuOpen = false;
+	this.fgmenuExists = false;
 	
 	var options = jQuery.extend({
 		content: null,
-		width: 180, // width of menu container, must be set or passed in to calculate widths of child menus
-		maxHeight: 180, // max height of menu (if a drilldown: height does not include breadcrumb)
+		width: 180, // width of fgmenu container, must be set or passed in to calculate widths of child fgmenus
+		maxHeight: 180, // max height of fgmenu (if a drilldown: height does not include breadcrumb)
 		positionOpts: {
 			posX: 'left', 
 			posY: 'bottom',
@@ -54,25 +54,25 @@ function Menu(caller, options){
 			linkToFront: false
 		},
 		showSpeed: 200, // show/hide speed in milliseconds
-		callerOnState: 'ui-state-active', // class to change the appearance of the link/button when the menu is showing
-		loadingState: 'ui-state-loading', // class added to the link/button while the menu is created
-		linkHover: 'ui-state-hover', // class for menu option hover state
-		linkHoverSecondary: 'li-hover', // alternate class, may be used for multi-level menus		
-	// ----- multi-level menu defaults -----
-		crossSpeed: 200, // cross-fade speed for multi-level menus
+		callerOnState: 'ui-state-active', // class to change the appearance of the link/button when the fgmenu is showing
+		loadingState: 'ui-state-loading', // class added to the link/button while the fgmenu is created
+		linkHover: 'ui-state-hover', // class for fgmenu option hover state
+		linkHoverSecondary: 'li-hover', // alternate class, may be used for multi-level fgmenus		
+	// ----- multi-level fgmenu defaults -----
+		crossSpeed: 200, // cross-fade speed for multi-level fgmenus
 		crumbDefaultText: 'Choose an option:',
-		backLink: true, // in the ipod-style menu: instead of breadcrumbs, show only a 'back' link
+		backLink: true, // in the ipod-style fgmenu: instead of breadcrumbs, show only a 'back' link
 		backLinkText: 'Back',
-		flyOut: false, // multi-level menus are ipod-style by default; this parameter overrides to make a flyout instead
+		flyOut: false, // multi-level fgmenus are ipod-style by default; this parameter overrides to make a flyout instead
 		flyOutOnState: 'ui-state-default',
-		nextMenuLink: 'ui-icon-triangle-1-e', // class to style the link (specifically, a span within the link) used in the multi-level menu to show the next level
+		nextMenuLink: 'ui-icon-triangle-1-e', // class to style the link (specifically, a span within the link) used in the multi-level fgmenu to show the next level
 		topLinkText: 'All',
 		nextCrumbLink: 'ui-icon-carat-1-e'	
 	}, options);
 	
 	var killAllMenus = function(){
 		$.each(allUIMenus, function(i){
-			if (allUIMenus[i].menuOpen) { allUIMenus[i].kill(); };	
+			if (allUIMenus[i].fgmenuOpen) { allUIMenus[i].kill(); };	
 		});
 	};
 	
@@ -84,10 +84,10 @@ function Menu(caller, options){
 		container.find('li').removeClass(options.linkHoverSecondary).find('a').removeClass(options.linkHover);		
 		if (options.flyOutOnState) { container.find('li a').removeClass(options.flyOutOnState); };	
 		if (options.callerOnState) { 	caller.removeClass(options.callerOnState); };			
-		if (container.is('.fg-menu-ipod')) { menu.resetDrilldownMenu(); };
-		if (container.is('.fg-menu-flyout')) { menu.resetFlyoutMenu(); };	
+		if (container.is('.fg-menu-ipod')) { fgmenu.resetDrilldownMenu(); };
+		if (container.is('.fg-menu-flyout')) { fgmenu.resetFlyoutMenu(); };	
 		container.parent().hide();	
-		menu.menuOpen = false;
+		fgmenu.fgmenuOpen = false;
 		$(document).unbind('click', killAllMenus);
 		$(document).unbind('keydown');
 	};
@@ -98,13 +98,13 @@ function Menu(caller, options){
 
 	this.showMenu = function(){
 		killAllMenus();
-		if (!menu.menuExists) { menu.create() };
+		if (!fgmenu.fgmenuExists) { fgmenu.create() };
 		caller
 			.addClass('fg-menu-open')
 			.addClass(options.callerOnState);
-		container.parent().show().click(function(){ menu.kill(); return false; });
+		container.parent().show().click(function(){ fgmenu.kill(); return false; });
 		container.hide().slideDown(options.showSpeed).find('.fg-menu:eq(0)');
-		menu.menuOpen = true;
+		fgmenu.fgmenuOpen = true;
 		caller.removeClass(options.loadingState);
 		$(document).click(killAllMenus);
 		
@@ -115,16 +115,16 @@ function Menu(caller, options){
 			else if (event.charCode != "") { e = event.charCode; }
 			else if (event.keyCode != "") { e = event.keyCode; }
 			
-			var menuType = ($(event.target).parents('div').is('.fg-menu-flyout')) ? 'flyout' : 'ipod' ;
+			var fgmenuType = ($(event.target).parents('div').is('.fg-menu-flyout')) ? 'flyout' : 'ipod' ;
 			
 			switch(e) {
 				case 37: // left arrow 
-					if (menuType == 'flyout') {
+					if (fgmenuType == 'flyout') {
 						$(event.target).trigger('mouseout');
 						if ($('.'+options.flyOutOnState).size() > 0) { $('.'+options.flyOutOnState).trigger('mouseover'); };
 					};
 					
-					if (menuType == 'ipod') {
+					if (fgmenuType == 'ipod') {
 						$(event.target).trigger('mouseout');
 						if ($('.fg-menu-footer').find('a').size() > 0) { $('.fg-menu-footer').find('a').trigger('click'); };
 						if ($('.fg-menu-header').find('a').size() > 0) { $('.fg-menu-current-crumb').prev().find('a').trigger('click'); };
@@ -149,10 +149,10 @@ function Menu(caller, options){
 					
 				case 39: // right arrow 
 					if ($(event.target).is('.fg-menu-indicator')) {						
-						if (menuType == 'flyout') {
+						if (fgmenuType == 'flyout') {
 							$(event.target).next().find('a:eq(0)').trigger('mouseover');
 						}
-						else if (menuType == 'ipod') {
+						else if (fgmenuType == 'ipod') {
 							$(event.target).trigger('click');						
 							setTimeout(function(){
 								$(event.target).next().find('a:eq(0)').trigger('mouseover');
@@ -179,7 +179,7 @@ function Menu(caller, options){
 					break;
 					
 				case 13: // enter
-					if ($(event.target).is('.fg-menu-indicator') && menuType == 'ipod') {							
+					if ($(event.target).is('.fg-menu-indicator') && fgmenuType == 'ipod') {							
 						$(event.target).trigger('click');						
 						setTimeout(function(){
 							$(event.target).next().find('a:eq(0)').trigger('mouseover');
@@ -195,19 +195,19 @@ function Menu(caller, options){
 		container.find('ul, li a').addClass('ui-corner-all');
 		
 		// aria roles & attributes
-		container.find('ul').attr('role', 'menu').eq(0).attr('aria-activedescendant','active-menuitem').attr('aria-labelledby', caller.attr('id'));
-		container.find('li').attr('role', 'menuitem');
+		container.find('ul').attr('role', 'fgmenu').eq(0).attr('aria-activedescendant','active-menuitem').attr('aria-labelledby', caller.attr('id'));
+		container.find('li').attr('role', 'fgmenuitem');
 		container.find('li:has(ul)').attr('aria-haspopup', 'true').find('ul').attr('aria-expanded', 'false');
 		container.find('a').attr('tabindex', '-1');
 		
-		// when there are multiple levels of hierarchy, create flyout or drilldown menu
+		// when there are multiple levels of hierarchy, create flyout or drilldown fgmenu
 		if (container.find('ul').size() > 1) {
-			if (options.flyOut) { menu.flyout(container, options); }
-			else { menu.drilldown(container, options); }	
+			if (options.flyOut) { fgmenu.flyout(container, options); }
+			else { fgmenu.drilldown(container, options); }	
 		}
 		else {
 			container.find('a').click(function(){
-				menu.chooseItem(this);
+				fgmenu.chooseItem(this);
 				return false;
 			});
 		};	
@@ -216,7 +216,7 @@ function Menu(caller, options){
 			var allLinks = container.find('.fg-menu li a');
 			allLinks.hover(
 				function(){
-					var menuitem = $(this);
+					var fgmenuitem = $(this);
 					$('.'+options.linkHover).removeClass(options.linkHover).blur().parent().removeAttr('id');
 					$(this).addClass(options.linkHover).focus().parent().attr('id','active-menuitem');
 				},
@@ -237,20 +237,20 @@ function Menu(caller, options){
 			);
 		};	
 		
-		menu.setPosition(container, caller, options);
-		menu.menuExists = true;
+		fgmenu.setPosition(container, caller, options);
+		fgmenu.fgmenuExists = true;
 	};
 	
 	this.chooseItem = function(item){
-		menu.kill();
+		fgmenu.kill();
 		// edit this for your own custom function/callback:
-		$('#menuSelection').text($(item).text());	
+		$('#fgmenuSelection').text($(item).text());	
 		location.href = $(item).attr('href');
 	};
 };
 
 Menu.prototype.flyout = function(container, options) {
-	var menu = this;
+	var fgmenu = this;
 	
 	this.resetFlyoutMenu = function(){
 		var allLists = container.find('ul ul');
@@ -300,14 +300,14 @@ Menu.prototype.flyout = function(container, options) {
 	});
 	
 	container.find('a').click(function(){
-		menu.chooseItem(this);
+		fgmenu.chooseItem(this);
 		return false;
 	});
 };
 
 
 Menu.prototype.drilldown = function(container, options) {
-	var menu = this;	
+	var fgmenu = this;	
 	var topList = container.find('.fg-menu');	
 	var breadcrumb = $('<ul class="fg-menu-breadcrumb ui-widget-header ui-corner-all ui-helper-clearfix"></ul>');
 	var crumbDefaultHeader = $('<li class="fg-menu-breadcrumb-text">'+options.crumbDefaultText+'</li>');
@@ -355,19 +355,19 @@ Menu.prototype.drilldown = function(container, options) {
 	checkMenuHeight(topList);	
 	
 	topList.find('a').each(function(){
-		// if the link opens a child menu:
+		// if the link opens a child fgmenu:
 		if ($(this).next().is('ul')) {
 			$(this)
 				.addClass('fg-menu-indicator')
 				.each(function(){ $(this).html('<span>' + $(this).text() + '</span><span class="ui-icon '+options.nextMenuLink+'"></span>'); })
-				.click(function(){ // ----- show the next menu			
+				.click(function(){ // ----- show the next fgmenu			
 					var nextList = $(this).next();
 		    		var parentUl = $(this).parents('ul:eq(0)');   		
 		    		var parentLeft = (parentUl.is('.fg-menu-content')) ? 0 : parseFloat(topList.css('left'));    		
 		    		var nextLeftVal = Math.round(parentLeft - parseFloat(container.width()));
 		    		var footer = $('.fg-menu-footer');
 		    		
-		    		// show next menu   		
+		    		// show next fgmenu   		
 		    		resetChildMenu(parentUl);
 		    		checkMenuHeight(nextList);
 					topList.animate({ left: nextLeftVal }, options.crossSpeed);						
@@ -390,7 +390,7 @@ Menu.prototype.drilldown = function(container, options) {
 							footer.show();
 							$('<a href="#"><span class="ui-icon ui-icon-triangle-1-w"></span> <span>Back</span></a>')
 								.appendTo(footer)
-								.click(function(){ // ----- show the previous menu
+								.click(function(){ // ----- show the previous fgmenu
 									var b = $(this);
 						    		var prevLeftVal = parseFloat(topList.css('left')) + container.width();		    						    		
 						    		topList.animate({ left: prevLeftVal },  options.crossSpeed, function(){
@@ -405,7 +405,7 @@ Menu.prototype.drilldown = function(container, options) {
 		    			if (breadcrumb.find('li').size() == 1){				
 							breadcrumb.empty().append(firstCrumb);
 							firstCrumb.find('a').click(function(){
-								menu.resetDrilldownMenu();
+								fgmenu.resetDrilldownMenu();
 								return false;
 							});
 						}
@@ -416,7 +416,7 @@ Menu.prototype.drilldown = function(container, options) {
 							.appendTo(breadcrumb)
 							.find('a').click(function(){
 								if ($(this).parent().is('.fg-menu-current-crumb')){
-									menu.chooseItem(this);
+									fgmenu.chooseItem(this);
 								}
 								else {
 									var newLeftVal = - ($('.fg-menu-current').parents('ul').size() - 1) * 180;
@@ -424,7 +424,7 @@ Menu.prototype.drilldown = function(container, options) {
 										setPrevMenu();
 									});
 								
-									// make this the current crumb, delete all breadcrumbs after this one, and navigate to the relevant menu
+									// make this the current crumb, delete all breadcrumbs after this one, and navigate to the relevant fgmenu
 									$(this).parent().addClass('fg-menu-current-crumb').find('span').remove();
 									$(this).parent().nextAll().remove();									
 								};
@@ -435,10 +435,10 @@ Menu.prototype.drilldown = function(container, options) {
 		    		return false;    		
     			});
 		}
-		// if the link is a leaf node (doesn't open a child menu)
+		// if the link is a leaf node (doesn't open a child fgmenu)
 		else {
 			$(this).click(function(){
-				menu.chooseItem(this);
+				fgmenu.chooseItem(this);
 				return false;
 			});
 		};
@@ -453,11 +453,11 @@ Menu.prototype.drilldown = function(container, options) {
 				X: left*, center, right
 				Y: top, center, bottom*
 		- offsetX/Y: the number of pixels to be offset from the x or y position.  Can be a positive or negative number.
-		- directionH/V: where the entire menu should appear in relation to its referrer.
+		- directionH/V: where the entire fgmenu should appear in relation to its referrer.
 				Horizontal: left*, right
 				Vertical: up, down*
 		- detectH/V: detect the viewport horizontally / vertically
-		- linkToFront: copy the menu link and place it on top of the menu (visual effect to make it look like it overlaps the object) */
+		- linkToFront: copy the fgmenu link and place it on top of the fgmenu (visual effect to make it look like it overlaps the object) */
 
 Menu.prototype.setPosition = function(widget, caller, options) { 
 	var el = widget;
@@ -527,7 +527,7 @@ Menu.prototype.setPosition = function(widget, caller, options) {
 		}
 	};
 	
-	// if specified, clone the referring element and position it so that it appears on top of the menu
+	// if specified, clone the referring element and position it so that it appears on top of the fgmenu
 	if (options.positionOpts.linkToFront) {
 		referrer.clone().addClass('linkClone').css({
 			position: 'absolute', 
