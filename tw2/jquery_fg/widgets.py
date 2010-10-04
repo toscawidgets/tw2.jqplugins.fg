@@ -7,7 +7,7 @@ from tw2.core.resources import encoder
 from tw2.jquery_ui import base as uibase
 from tw2.jquery_fg import base as fgbase
 
-class MenuWidget(uibase.JQueryUIWidget):
+class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     """
     Configurable options - Default values are next to each option:
         width: 180 - width of menu container. Required for hierarchical menus (flyout, ipod) to calculate widths of child menus
@@ -75,5 +75,6 @@ class MenuWidget(uibase.JQueryUIWidget):
     jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
-    button = twc.Param(
-        'A label for the menu (an instance of tw2.jquery_ui.ButtonWidget)')
+    child = twc.Param(
+        'A label for the menu (an instance of tw2.jquery_ui.ButtonWidget)',
+    )

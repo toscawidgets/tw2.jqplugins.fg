@@ -177,10 +177,11 @@ class DemoMenuWidget(MenuWidget):
         'maxHeight' : 300,
         'width' : 250,
     }
-    button = tw2.jquery_ui.ButtonWidget(options={
-        'label' : 'A Menu',
-        'icons' : {
-            'primary' : 'ui-icon-triangle-1-s'
+    class child(tw2.jquery_ui.ButtonWidget):
+        options={
+            'label' : 'A Menu',
+            'icons' : {
+                'primary' : 'ui-icon-triangle-1-s'
+            }
         }
-    })
 
