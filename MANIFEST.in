@@ -1,3 +1,4 @@
 recursive-include tw2/jquery_fg/static *
 recursive-include tw2/jquery_fg/templates *
 include README.rst
+include pylint.output
