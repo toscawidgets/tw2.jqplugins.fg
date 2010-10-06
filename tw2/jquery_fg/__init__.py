@@ -1,6 +1,6 @@
-""" TW2 wrappers for the widgets from jquery UI ( http://jqueryui.com/ )
+""" TW2 wrappers for the widgets from 'filament group' widgets
 
-Get the source from http://github.com/ralphbean/tw2.jquery_ui
+Get the source from http://github.com/ralphbean/tw2.jquery_fg
 """
 
 from widgets import *
