@@ -72,7 +72,7 @@ class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     ]
 
 
-    template = "genshi:tw2.jquery_fg.templates.menu"
+    template = "tw2.jquery_fg.templates.menu"
     jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
