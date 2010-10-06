@@ -14,7 +14,7 @@ some_items = [
         'children' : [ 
             {'name' : "Entertainment",},
             {'name' : "Politics",},
-            {'name' : "A&amp;E",},
+            {'name' : "A&E",},
             {'name' : "Sports", 
                 'children' : [ 
                     {'name' : "Baseball",},

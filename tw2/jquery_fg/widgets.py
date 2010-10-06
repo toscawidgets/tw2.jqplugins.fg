@@ -6,6 +6,7 @@ from tw2.core.resources import encoder
 # imports from this package
 from tw2.jquery_ui import base as uibase
 from tw2.jquery_fg import base as fgbase
+import tw2.jquery_ui
 
 class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     """
@@ -71,10 +72,19 @@ class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     ]
 
 
-    template = "tw2.jquery_fg.templates.menu"
+    template = "genshi:tw2.jquery_fg.templates.menu"
     jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
     child = twc.Param(
         'A label for the menu (an instance of tw2.jquery_ui.ButtonWidget)',
     )
+    def prepare(self):
+        super(MenuWidget, self).prepare()
+        if not hasattr(self, 'child') or getattr(self, 'child') == None:
+            raise ValueError, "MenuWidget must be supplied a child parameter" 
+        req_type = "ButtonWidget"
+        if not req_type in str(type(self.child)):
+            raise ValueError, "MenuWidget child must be of type %s not %s" % (
+                req_type, type(self.child))
+
