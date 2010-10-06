@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='tw2.jquery_fg',
-    version='2.0a4',
+    version='2.0a5',
     description='toscawidgets2 wrapper for random filament group tools',
     long_description=long_description,
     author='Ralph Bean',
