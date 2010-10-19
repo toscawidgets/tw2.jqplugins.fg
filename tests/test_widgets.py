@@ -1,4 +1,3 @@
-from tw2.jquery_core.widgets import JQueryWidget
 from webob import Request
 from webob.multidict import NestedMultiDict
 from tw2.core.testbase import assert_in_xml, assert_eq_xml, WidgetTest
@@ -14,14 +13,14 @@ if hasattr(webob, 'NestedMultiDict'):
 else:
     from webob.multidict import NestedMultiDict
 
-import tw2.jquery_ui
-import tw2.jquery_fg.widgets as w
+import tw2.jquery.plugins.ui
+import tw2.jquery.plugins.fg.widgets as w
 
 class TestMenuWidget(WidgetTest):
     widget = w.MenuWidget
     attrs = {'id' : 'foo'}
     params = {
-        'child' : tw2.jquery_ui.ButtonWidget(id='blahah'),
+        'child' : tw2.jquery.plugins.ui.ButtonWidget(id='blahah'),
         'items' : [
             {'name' : "Breaking News",
              'children' : [

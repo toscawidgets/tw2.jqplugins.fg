@@ -3,20 +3,18 @@
 import tw2.core as twc
 from tw2.core.resources import encoder
 
-# tw2.jquery_core imports
-from tw2.jquery_core import JQueryWidget
-from tw2.jquery_core.base import jQueryJSLink
-from tw2.jquery_core.base import jQueryPluginLinkMixin
-from tw2.jquery_core.version import JSLinkMixin
+# tw2.jquery core imports
+from tw2.jquery.base import jQueryJSLink, jQueryPluginLinkMixin
+from tw2.jquery.version import JSLinkMixin
 
 # import from *this* package
-from tw2.jquery_fg import defaults
+from tw2.jquery.plugins.fg import defaults
 
 ### Links, etc...
 class jQueryFGMixin(jQueryPluginLinkMixin):
     dirname = defaults._fg_dirname_
     basename='fg.menu'
-    modname = 'tw2.jquery_fg'
+    modname = 'tw2.jquery.plugins.fg'
 
 class jQueryFGJSLink(twc.JSLink, jQueryFGMixin):
     subdir = 'js'

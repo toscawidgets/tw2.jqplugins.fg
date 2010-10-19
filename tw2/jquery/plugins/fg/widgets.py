@@ -4,9 +4,9 @@ import tw2.core as twc
 from tw2.core.resources import encoder
 
 # imports from this package
-from tw2.jquery_ui import base as uibase
-from tw2.jquery_fg import base as fgbase
-import tw2.jquery_ui
+from tw2.jquery.plugins.ui import base as uibase
+from tw2.jquery.plugins.fg import base as fgbase
+import tw2.jquery.plugins.ui
 
 class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     """
@@ -72,12 +72,12 @@ class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
     ]
 
 
-    template = "tw2.jquery_fg.templates.menu"
+    template = "tw2.jquery.plugins.fg.templates.menu"
     jqmethod = 'fgmenu'
 
     items = twc.Param('A recursive dictionary of menu entries', default=[])
     child = twc.Param(
-        'A label for the menu (an instance of tw2.jquery_ui.ButtonWidget)',
+        'A label for the menu (an instance of tw2.jquery.plugins.ui.ButtonWidget)',
     )
     def prepare(self):
         super(MenuWidget, self).prepare()

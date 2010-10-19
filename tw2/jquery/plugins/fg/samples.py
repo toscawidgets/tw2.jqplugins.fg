@@ -6,7 +6,7 @@ These samples will appear in the WidgetBrowser
 See http://toscawidgets.org/documentation/WidgetBrowser for more information
 """
 
-import tw2.jquery_ui
+import tw2.jquery.plugins.ui
 from widgets import MenuWidget
 
 some_items = [
@@ -177,7 +177,7 @@ class DemoMenuWidget(MenuWidget):
         'maxHeight' : 300,
         'width' : 250,
     }
-    child = tw2.jquery_ui.ButtonWidget(
+    child = tw2.jquery.plugins.ui.ButtonWidget(
         options={
             'label' : 'A Menu',
             'icons' : {

@@ -1,3 +1,3 @@
-recursive-include tw2/jquery_fg/static *
-recursive-include tw2/jquery_fg/templates *
+recursive-include tw2/jquery/plugins/fg/static *
+recursive-include tw2/jquery/plugins/fg/templates *
 include README.rst
