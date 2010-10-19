@@ -7,7 +7,7 @@ f.close()
 
 setup(
     name='tw2.jquery.plugins.fg',
-    version='2.0a6',
+    version='2.0b1',
     description='toscawidgets2 wrapper for random filament group tools',
     long_description=long_description,
     author='Ralph Bean',
@@ -15,9 +15,9 @@ setup(
     license='MIT',
     url='http://github.com/ralphbean/tw2.jquery.plugins.fg',
     install_requires=[
-        #"tw2.core>=2.0b2",
-        #"tw2.jquery_core",
-        #"tw2.jquery_ui",
+        "tw2.core>=2.0b2",
+        "tw2.jquery",
+        "tw2.jquery.plugins.ui",
         "genshi",
         "mako",
         ],
