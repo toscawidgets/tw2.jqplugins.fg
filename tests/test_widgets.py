@@ -32,8 +32,8 @@ class TestMenuWidget(WidgetTest):
             }]
     }
     expected = """
-<div id="foo-wrapper">
-<div id="blahah-wrapper">
+<div id="foo:wrapper">
+<div id="blahah:wrapper">
 <button id="blahah"></button>
 <script type="text/javascript">
 $(function() {
@@ -41,7 +41,7 @@ $(function() {
 });
 </script>
 </div>
-<div id="foo-target" class="hidden">
+<div id="foo:target" class="hidden">
     <ul>
         <li><a href="#">Breaking News</a>
             <ul>
@@ -57,7 +57,7 @@ $(function() {
 $(function() {
     $(document).ready( function () {
         var opts = {};
-        opts['content'] = $('#foo-target').html();
+        opts['content'] = $('#foo\\\\:target').html();
         $("#foo").fgmenu(opts);
     });
 });
