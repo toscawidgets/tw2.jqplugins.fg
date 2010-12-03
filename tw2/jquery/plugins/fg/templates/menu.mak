@@ -1,7 +1,7 @@
 <%namespace name="tw" module="tw2.core.mako_util"/>
-<div id="${w.attrs['id']}-wrapper">
+<div id="${w.attrs['id']}:wrapper">
 ${w.child.display()}
-<div id="${w.attrs['id']}-target" class='hidden'>
+<div id="${w.attrs['id']}:target" class='hidden'>
     <ul>
 	% for entry in w.items:
 		<%include file="recursive_menu.mak" args="item=entry" />
@@ -13,10 +13,10 @@ ${w.child.display()}
 $(function() {
     $(document).ready( function () {
         var opts = ${w.options};
-        opts['content'] = $('#${w.attrs["id"]}-target').html();
-        $("#${w.attrs['id']}").${w.jqmethod}(opts);
+        opts['content'] = $('#${w.selector}\\:target').html();
+        $("#${w.selector}").${w.jqmethod}(opts);
 		% if w.click:
-        $("#${w.attrs['id']}").click(${w.click});
+        $("#${w.selector}").click(${w.click});
 		% endif
     });
 });

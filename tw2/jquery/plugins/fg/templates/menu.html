@@ -1,9 +1,9 @@
 <div xmlns:py="http://genshi.edgewall.org/"
      xmlns:xi="http://www.w3.org/2001/XInclude"
-     id="${w.attrs['id']}-wrapper">
+     id="${w.attrs['id']}:wrapper">
 
 ${w.child.display()}
-<div id="${w.attrs['id']}-target" class='hidden'>
+<div id="${w.attrs['id']}:target" class='hidden'>
     <ul>
     <py:for each="entry in w.items">
         <xi:include href="recursive_menu.html" py:with="item=entry" />
@@ -15,10 +15,10 @@ ${w.child.display()}
 $(function() {
     $(document).ready( function () {
         var opts = ${w.options};
-        opts['content'] = $('#${w.attrs["id"]}-target').html();
-        $("#${w.attrs['id']}").${w.jqmethod}(opts);
+        opts['content'] = $('#${w.selector}\\:target').html();
+        $("#${w.selector}").${w.jqmethod}(opts);
         <py:if test="w.click">
-        $("#${w.attrs['id']}").click(${w.click});
+        $("#${w.selector}").click(${w.click});
         </py:if>
     });
 });
