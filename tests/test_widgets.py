@@ -13,14 +13,14 @@ if hasattr(webob, 'NestedMultiDict'):
 else:
     from webob.multidict import NestedMultiDict
 
-import tw2.jquery.plugins.ui
-import tw2.jquery.plugins.fg.widgets as w
+import tw2.jqplugins.ui
+import tw2.jqplugins.fg.widgets as w
 
 class TestMenuWidget(WidgetTest):
     widget = w.MenuWidget
     attrs = {'id' : 'foo'}
     params = {
-        'child' : tw2.jquery.plugins.ui.ButtonWidget(id='blahah'),
+        'child' : tw2.jqplugins.ui.ButtonWidget(id='blahah'),
         'items' : [
             {'name' : "Breaking News",
              'children' : [
