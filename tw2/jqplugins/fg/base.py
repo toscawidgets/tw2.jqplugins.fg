@@ -8,13 +8,13 @@ from tw2.jquery.base import jQueryJSLink, jQueryPluginLinkMixin
 from tw2.jquery.version import JSLinkMixin
 
 # import from *this* package
-from tw2.jquery.plugins.fg import defaults
+from tw2.jqplugins.fg import defaults
 
 ### Links, etc...
 class jQueryFGMixin(jQueryPluginLinkMixin):
     dirname = defaults._fg_dirname_
     basename='fg.menu'
-    modname = 'tw2.jquery.plugins.fg'
+    modname = 'tw2.jqplugins.fg'
 
 class jQueryFGJSLink(twc.JSLink, jQueryFGMixin):
     subdir = 'js'

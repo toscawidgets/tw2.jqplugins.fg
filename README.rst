@@ -1,4 +1,4 @@
-tw2.jquery.plugins.fg
+tw2.jqplugins.fg
 =====================
 
 :Author: Ralph Bean <ralph.bean@gmail.com>
@@ -10,18 +10,18 @@ tw2.jquery.plugins.fg
 .. _jQuery: http://jquery.com/
 .. _filament group: http://www.filamentgroup.com/
 
-tw2.jquery.plugins.fg is a `toscawidgets2 (tw2)`_ wrapper for a bunch of random widgets and tools from the awesome `filament group`_.
+tw2.jqplugins.fg is a `toscawidgets2 (tw2)`_ wrapper for a bunch of random widgets and tools from the awesome `filament group`_.
 
 Live Demo
 ---------
-Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jquery.plugins.fg>`_.
+Peep the `live demonstration <http://craftsman.rc.rit.edu/module?module=tw2.jqplugins.fg>`_.
 
 Links
 -----
-Get the `source from github <http://github.com/ralphbean/tw2.jquery.plugins.fg>`_.
+Get the `source from github <http://github.com/ralphbean/tw2.jqplugins.fg>`_.
 
-`PyPI page <http://pypi.python.org/pypi/tw2.jquery.plugins.fg>`_
-and `bugs <http://github.com/ralphbean/tw2.jquery.plugins.fg/issues/>`_
+`PyPI page <http://pypi.python.org/pypi/tw2.jqplugins.fg>`_
+and `bugs <http://github.com/ralphbean/tw2.jqplugins.fg/issues/>`_
 
 Description
 -----------
@@ -36,4 +36,4 @@ The `filament group`_ designs engaging user interfaces for web
 applications, mobile devices and touchscreen kiosks that are simple
 and accessible to everyone.
 
-This module, tw2.jquery.plugins.fg, provides `toscawidgets2 (tw2)`_ access to random `filament group`_ widgets.
+This module, tw2.jqplugins.fg, provides `toscawidgets2 (tw2)`_ access to random `filament group`_ widgets.
