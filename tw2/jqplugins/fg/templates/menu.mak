@@ -15,8 +15,8 @@ $(function() {
         var opts = ${w.options};
         opts['content'] = $('#${w.selector}\\:target').html();
         $("#${w.selector}").${w.jqmethod}(opts);
-		% if w.click:
-        $("#${w.selector}").click(${w.click});
+		% if 'click' in w.events:
+        $("#${w.selector}").click(${w.events['click']});
 		% endif
     });
 });

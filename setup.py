@@ -11,7 +11,7 @@ _extra_mako = ["Mako >= 0.1.1"]
 
 setup(
     name='tw2.jqplugins.fg',
-    version='2.0b7',
+    version='2.0b8',
     description='toscawidgets2 wrapper for random filament group tools',
     long_description=long_description,
     author='Ralph Bean',
@@ -19,9 +19,9 @@ setup(
     license='MIT',
     url='http://github.com/ralphbean/tw2.jqplugins.fg',
     install_requires=[
-        "tw2.core>=2.0b2",
+        "tw2.core>=2.0b5",
         "tw2.jquery",
-        "tw2.jqplugins.ui>=2.0b7",
+        "tw2.jqplugins.ui>=2.0b20",
         ],
     extras_require = {
         'genshi': _extra_genshi,
