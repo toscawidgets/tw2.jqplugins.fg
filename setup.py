@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
 
+import multiprocessing, logging
+
 f = open('README.rst')
 long_description = f.read().strip()
 long_description = long_description.split('split here', 1)[1]
@@ -27,7 +29,7 @@ setup(
         'genshi': _extra_genshi,
         'mako': _extra_mako,
     },
-    tests_require = ['BeautifulSoup', 'nose', 'FormEncode', 'WebTest',] + _extra_genshi + _extra_mako,
+    tests_require = ['BeautifulSoup', 'nose', 'FormEncode', 'strainer', 'WebTest',] + _extra_genshi + _extra_mako,
     packages=find_packages(exclude=['ez_setup', 'tests']),
     namespace_packages = ['tw2'],
     zip_safe=False,
