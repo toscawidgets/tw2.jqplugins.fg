@@ -1,7 +1,7 @@
 
 <li xmlns:py="http://genshi.edgewall.org/"
     xmlns:xi="http://www.w3.org/2001/XInclude">
-    <a href="${item.get('href', '#')}">${item.get('name', None)}</a>
+    <a href="${item.get('href', '#')}" id="${w.attrs['id']}:target:${item.get('key', '')}">${item.get('name', None)}</a>
     <ul py:if="len(item.get('children', [])) > 0">
     <py:for each="child in item.get('children', [])">
         <xi:include href="recursive_menu.html" py:with="item=child;" />

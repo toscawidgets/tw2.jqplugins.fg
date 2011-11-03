@@ -62,6 +62,8 @@ class MenuWidget(uibase.JQueryUIWidget, twc.DisplayOnlyWidget):
         topLinkText: 'All' - text for the first breadcrumb that navigates back to the start of the ipod-style menu
         
         nextCrumbLink: 'ui-icon-carat-1-e' - class for setting the background image that follows each breadcrumb link (currently a carat)
+    
+        onClick: null - Callback for when an item is clicked. If not defined and item has a link defined, clicking will goto that link.
     """
     resources = [
         fgbase.jquery_js,
