@@ -8,6 +8,7 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 
 import tw2.jqplugins.ui
 from widgets import MenuWidget
+import tw2.core as twc
 
 some_items = [
     {'name' : "Breaking News",
@@ -176,6 +177,11 @@ class DemoMenuWidget(MenuWidget):
         'backLink' : False,
         'maxHeight' : 300,
         'width' : 250,
+        'onClick' : twc.JSSymbol("""
+            function() {
+                alert("You selected: " + $(this).text());
+            }
+        """)
     }
     child = tw2.jqplugins.ui.ButtonWidget(
         options={
