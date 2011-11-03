@@ -247,10 +247,10 @@ function Menu(caller, options){
 		// edit this for your own custom function/callback:
 		// $('#fgmenuSelection').text($(item).text());
 		if (options.onClick != null) {
-            options.onClick.call(item);
-        } else {	
+            		options.onClick.call(item);
+        	} else {	
 		    location.href = $(item).attr('href');
-        }
+        	}
 	};
 };
 
