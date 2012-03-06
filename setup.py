@@ -19,7 +19,7 @@ setup(
     author='Ralph Bean',
     author_email='ralph.bean@gmail.com',
     license='MIT',
-    url='http://github.com/ralphbean/tw2.jqplugins.fg',
+    url='http://github.com/toscawidgets/tw2.jqplugins.fg',
     install_requires=[
         "tw2.core>=2.0b5",
         "tw2.jquery",
